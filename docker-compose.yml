@@ -1,12 +1,17 @@
 version: '3'
 
 services:
-    frontend:
+    dev:
         build: 
             context: .
             dockerfile: Dockerfile.dev
         ports: 
             - 3000:3000
         volumes:
-            - /application/node_modules
-            - .:/application
+            - /app/node_modules
+            - .:/app
+
+    prod:
+        build: .
+        ports: 
+            - 8080:80
